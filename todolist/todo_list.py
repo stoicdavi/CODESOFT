@@ -54,16 +54,29 @@ def marks_task_done():
         print('Invalid Task number!')
     
 def delete_task():
-    list_of_todo = upload_todo_list()
-    list_todos(list_of_todo)
-    task_number = int(input('Enter the task number you want to delete: ')) -1
+    while True:
+        list_of_todo = upload_todo_list()
+        list_todos(list_of_todo)
+        
+        if not list_of_todo:
+            print("No tasks to delete.")
+            break
+        
+        task_number = int(input('Enter the task number you want to delete (or 0 to exit): ')) - 1
+        
+        if task_number == -1:
+            break  # Exit the loop if the user enters 0
+        elif task_number >=0 and task_number < len(list_of_todo):
+            deleted_task = list_of_todo.pop(task_number)
+            save_todo_task(list_of_todo)
+            print(f"Task '{deleted_task['Task']}' successfully deleted!\n")
+        else:
+            print('Invalid task number. Please check and try again!')
 
-    if task_number > 0 and task_number < len(list_of_todo):
-        deleted_task = list_of_todo.pop(task_number)
-        save_todo_task(list_of_todo)
-        print(f'Tasks succefully deleted!')
-    else:
-        print('Invalid task number try check and try again!')
+        if not list_of_todo:
+            print("All tasks have been deleted.")
+            break
+
 
 def main():
     while True:
@@ -80,7 +93,7 @@ def main():
             marks_task_done()
         elif choice == 4:
             delete_task()
-        elif choice == 0:
+        elif choice == -1:
             break
 
 
