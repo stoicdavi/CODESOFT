@@ -9,10 +9,10 @@
    },
    {
       "Task": "Run",
-      "Done": false
+      "Done": true
    },
    {
       "Task": "",
-      "Done": false
+      "Done": true
    }
 ]
