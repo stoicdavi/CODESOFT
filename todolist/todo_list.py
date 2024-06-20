@@ -93,7 +93,7 @@ def main():
             marks_task_done()
         elif choice == 4:
             delete_task()
-        elif choice == -1:
+        elif choice == 0:
             break
 
 

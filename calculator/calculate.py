@@ -16,4 +16,8 @@ def main():
             num1 = int(input("Enter the first number: "))
             num2 = int(input('Enter the second number: '))
             subtract(num1,num2)
+        elif choice == -1:
+            exit
     
+if __name__ == '__main__':
+    main()
