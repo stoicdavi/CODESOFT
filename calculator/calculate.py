@@ -6,7 +6,11 @@ def subtract(number1, number2):
 def multiplication(number1, number2):
     return number1 * number2
 def division(number1, number2):
-    return number1 / number1
+    try:
+        return number1 / number2
+    except ZeroDivisionError:
+        print('Division by Zero not allowed')
+
 def main():
     while True:
         print("\nSelect: \n1. For addition\n2.For subtraction\n3. For multiplication\n0.To exit")
