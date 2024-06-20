@@ -10,5 +10,9 @@
    {
       "Task": "Run",
       "Done": false
+   },
+   {
+      "Task": "",
+      "Done": false
    }
 ]

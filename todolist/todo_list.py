@@ -28,8 +28,19 @@ def save_todo_task(list_of_todo):
     with open(TODO_LIST_FILE, 'w') as wf:
         json.dump(list_of_todo, wf, indent=3)
 
+def main():
+    while True:
+        print("Select \n1.To view tasks in the list: \n2.To add task to the list: ")
+        choice = int(input("Choice: "))
+
+        if choice == 1:
+            list_of_todo = upload_todo_list()
+            list_todos(list_of_todo)
+        elif choice == 2:
+            add_todo_task()
+        elif choice == 3:
+            pass
 
 
-add_todo_task()
-todos = upload_todo_list()
-list_todos(todos)
+if __name__ == '__main__':
+    main()
