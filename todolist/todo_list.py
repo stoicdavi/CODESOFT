@@ -21,8 +21,15 @@ def add_todo_task():
     task = input("Enter the tasks you have: ")
     list_of_todo = upload_todo_list()
     list_of_todo.append({"Task": task, "Done": False}) 
-    print('Task added')
+    save_todo_task(list_of_todo)
+    print('Task added sucessfully!')
 
-todos = upload_todo_list()
+def save_todo_task(list_of_todo):
+    with open(TODO_LIST_FILE, 'w') as wf:
+        json.dump(list_of_todo, wf, indent=3)
+
+
+
 add_todo_task()
+todos = upload_todo_list()
 list_todos(todos)
