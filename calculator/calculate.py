@@ -9,7 +9,13 @@ def division(number1, number2):
     try:
         return number1 / number2
     except ZeroDivisionError:
-        print('Division by Zero not allowed')
+        return 'Division by Zero not allowed!'
+def square(number):
+    return number ** number
+
+def squareroot(number):
+    return mt.sqrt(number)
+
 
 def main():
     while True:
