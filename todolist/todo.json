@@ -1,6 +1,6 @@
 [
     {
-        "task": "Eat",
-        "done": false
+        "Task": "Eat",
+        "Done": false
     }
 ]

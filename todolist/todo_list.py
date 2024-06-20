@@ -12,9 +12,10 @@ def upload_todo_list():
         return []
 
 def list_todos(list_of_todo):
+    print('No  Task   status')
     for i, todo in enumerate(list_of_todo, 1):
-        status = 'Done' if todo['done'] else 'Not Done'
-        print(f"{i}. {todo['task']} [{status}]")
-        
+        status = 'Done' if todo['Done'] else 'Not Done'
+        print(f"{i}. {todo['Task']} [{status}]")
+
 todos = upload_todo_list()
 list_todos(todos)
