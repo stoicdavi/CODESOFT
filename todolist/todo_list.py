@@ -10,5 +10,11 @@ def upload_todo_list():
             return json.load(rf)
     else:
         return []
-    
-print(upload_todo_list())
+
+def list_todos(list_of_todo):
+    for i, todo in enumerate(list_of_todo, 1):
+        status = 'Done' if todo['done'] else 'Not Done'
+        print(f"{i}. {todo['task']} [{status}]")
+        
+todos = upload_todo_list()
+list_todos(todos)
