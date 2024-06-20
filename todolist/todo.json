@@ -8,11 +8,11 @@
       "Done": false
    },
    {
-      "Task": "Run",
-      "Done": true
+      "Task": "read",
+      "Done": false
    },
    {
-      "Task": "read",
+      "Task": "Playing",
       "Done": false
    }
 ]

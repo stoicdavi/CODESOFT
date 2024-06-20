@@ -12,17 +12,32 @@ def upload_todo_list():
         return []
 
 def list_todos(list_of_todo):
-    print('No  Task   status')
+    print('\nNo  Task   status')
     for i, todo in enumerate(list_of_todo, 1):
         status = 'Done' if todo['Done'] else 'Not Done'
         print(f"{i}. {todo['Task']} [{status}]")
 
 def add_todo_task():
-    task = input("Enter the tasks you have: ")
-    list_of_todo = upload_todo_list()
-    list_of_todo.append({"Task": task, "Done": False}) 
-    save_todo_task(list_of_todo)
-    print('Task added sucessfully!')
+    while True:
+        task = input("Enter the task you have: ")
+        list_of_todo = upload_todo_list()
+        list_of_todo.append({"Task": task, "Done": False}) 
+        save_todo_task(list_of_todo)
+        print('Task added successfully!\n')
+        
+        while True:
+            choice = input("Would you like to add another task? (Yes or No): ").strip().lower()
+            if choice in ['yes', 'y']:
+                break  
+            elif choice in ['no', 'n']:
+                return 
+            else:
+                print("Invalid choice, please enter 'Yes' or 'No'.")
+              
+              
+
+
+
 
 def save_todo_task(list_of_todo):
     with open(TODO_LIST_FILE, 'w') as wf:
@@ -46,13 +61,13 @@ def delete_task():
     if task_number > 0 and task_number < len(list_of_todo):
         deleted_task = list_of_todo.pop(task_number)
         save_todo_task(list_of_todo)
-        print(f'Taks succefully deleted!')
+        print(f'Tasks succefully deleted!')
     else:
         print('Invalid task number try check and try again!')
 
 def main():
     while True:
-        print("Select \n1.To view tasks in the list: \n2.To add task to the list: ")
+        print("\nSelect \n1.To view tasks in the list: \n2.To add task to the list: ")
         print("3.To mark a task as done\n4.To delete from the list \n0.To exit: ")
         choice = int(input("Choice: "))
 
