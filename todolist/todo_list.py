@@ -30,7 +30,7 @@ def save_todo_task(list_of_todo):
 
 def main():
     while True:
-        print("Select \n1.To view tasks in the list: \n2.To add task to the list: ")
+        print("Select \n1.To view tasks in the list: \n2.To add task to the list:\n0.To exit: ")
         choice = int(input("Choice: "))
 
         if choice == 1:
@@ -38,8 +38,8 @@ def main():
             list_todos(list_of_todo)
         elif choice == 2:
             add_todo_task()
-        elif choice == 3:
-            pass
+        elif choice == 0:
+            break
 
 
 if __name__ == '__main__':
