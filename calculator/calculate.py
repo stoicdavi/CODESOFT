@@ -5,7 +5,8 @@ def subtract(number1, number2):
     return(number1, number2)
 def multiplication(number1, number2):
     return number1 * number2
-
+def division(number1, number2):
+    return number1 / number1
 def main():
     while True:
         print("\nSelect: \n1. For addition\n2.For subtraction\n3. For multiplication\n0.To exit")
@@ -22,6 +23,10 @@ def main():
             num1 = int(input("Enter the first number: "))
             num2 = int(input('Enter the second number: '))
             print(f"\n**The product of {num1} and {num2} = {multiplication(num1, num2)}")
+        elif choice == 4:
+            num1 = int(input("Enter the first number: "))
+            num2 = int(input('Enter the second number: '))
+            print(f"\n**The division of {num1} and {num2} = {division(num1, num2)}")
         elif choice == 0:
             break
     
