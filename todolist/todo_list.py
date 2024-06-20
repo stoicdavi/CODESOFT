@@ -17,5 +17,12 @@ def list_todos(list_of_todo):
         status = 'Done' if todo['Done'] else 'Not Done'
         print(f"{i}. {todo['Task']} [{status}]")
 
+def add_todo_task():
+    task = input("Enter the tasks you have: ")
+    list_of_todo = upload_todo_list()
+    list_of_todo.append({"Task": task, "Done": False}) 
+    print('Task added')
+
 todos = upload_todo_list()
+add_todo_task()
 list_todos(todos)
