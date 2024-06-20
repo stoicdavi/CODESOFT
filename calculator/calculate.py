@@ -16,11 +16,12 @@ def square(number):
 def squareroot(number):
     return mt.sqrt(number)
 
-
+def modulus(number1, number2):
+    return number1 % number2
 def main():
     while True:
         print("\nSelect: \n1. For addition\n2.For subtraction\n3. For multiplication\n0.To exit")
-        print("4.For Division\n5.For square\n6.For square root")
+        print("4.For Division\n5.For square\n6.For square root\n7.For Modulus")
         choice = int(input("Choice: "))
         if choice == 1:
             num1 = int(input("Enter the first number: "))
@@ -41,6 +42,13 @@ def main():
         elif choice == 5:
             num = int(input('Enter a number to get the square: '))
             print(f'The square of {num} = {square(num)}')
+        elif choice == 6:
+            num = int(input('Enter a number to get the square: '))
+            print(f'The square root of {num} = {squareroot(num)}')
+        elif choice == 7: 
+            num1 = int(input("Enter the first number: "))
+            num2 = int(input('Enter the second number: '))
+            print(f"\n**The result of {num1} Modulus {num2} = {modulus(num1, num2)}")
 
         elif choice == 0:
             break
