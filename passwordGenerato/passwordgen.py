@@ -19,7 +19,13 @@ def generate_pass(Pass_length, lowercase=True, uppercase=True, punctuation_marks
     pass_chars.extend(st.digits)
 
   password = ''.join(rm.choices(pass_chars,k=Pass_length))
-  print(pass_chars)
   print(password)
+
+def capture_user_input():
+  while True:
+    print("Hello welcome")
+    Pass_length = int(input("Enter the password length: "))
+
+
 
 generate_pass(6,0,0,4,4)
