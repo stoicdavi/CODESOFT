@@ -26,13 +26,20 @@ def capture_user_input():
     print("Hello welcome")
     try:
       Pass_length = int(input("Enter the password length: "))
+      if Pass_length <= 0:
+        print('Invalid input! Please enter a positive number')
+        continue
+      break
     except ValueError:
       print('Invalid input! Please enter a positive number')
     break
+  
   return Pass_length
 
 def main():
+  print("****Welcome our random password generator****")
   Pass_length = capture_user_input()
+  
   generate_pass(Pass_length,0,0,4,4)
 
 if __name__ == '__main__':
