@@ -24,7 +24,10 @@ def generate_pass(Pass_length, lowercase=True, uppercase=True, punctuation_marks
 def capture_user_input():
   while True:
     print("Hello welcome")
-    Pass_length = int(input("Enter the password length: "))
+    try:
+      Pass_length = int(input("Enter the password length: "))
+    except ValueError:
+      print('Invalid input! Please enter a positive number')
     break
   return Pass_length
 
