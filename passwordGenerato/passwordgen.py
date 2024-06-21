@@ -18,8 +18,8 @@ def generate_pass(Pass_length, lowercase, uppercase, punctuation_marks, numbers)
   if numbers:
     pass_chars.extend(st.digits)
 
-  password = ''.join(pass_chars)
+  password = ''.join(rm.choices(pass_chars,k=Pass_length))
   print(pass_chars)
   print(password)
 
-generate_pass(1,1,3,4,4)
+generate_pass(6,1,3,4,4)
