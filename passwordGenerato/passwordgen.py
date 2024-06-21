@@ -19,7 +19,7 @@ def generate_pass(Pass_length, lowercase=True, uppercase=True, punctuation_marks
     pass_chars.extend(st.digits)
 
   password = ''.join(rm.choices(pass_chars,k=Pass_length))
-  print(password)
+  print(f'Your generated password is {password}')
 
 def capture_user_input():
   while True:
