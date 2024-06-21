@@ -1,7 +1,7 @@
 import random as rm
 import string as st
 
-def generate_pass(Pass_length, lowercase, uppercase, punctuation_marks, numbers):
+def generate_pass(Pass_length, lowercase=True, uppercase=True, punctuation_marks=True, numbers=True):
   
   """
   Generates a random password with the specified length and complexity.
@@ -22,4 +22,4 @@ def generate_pass(Pass_length, lowercase, uppercase, punctuation_marks, numbers)
   print(pass_chars)
   print(password)
 
-generate_pass(6,1,3,4,4)
+generate_pass(6,0,0,4,4)
