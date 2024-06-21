@@ -38,14 +38,29 @@ def capture_user_input():
     lowercase = True
   else:
     lowercase = False
+  uppercase_input = input("Do you want to incude uppercase letters? (yes or no): ").lower()
+  if uppercase_input in ['yes', 'y']:
+    uppercase = True
+  else:
+    uppercase = False
+  Punctuation_input = input("Do you want to incude punctuation marks? (yes or no): ").lower()
+  if Punctuation_input in ['yes', 'y']:
+    punctuation_marks = True
+  else:
+    punctuation_marks = False
+  numbers_input = input("Do you want to incude punctuation marks? (yes or no): ").lower()
+  if numbers_input in ['yes', 'y']:
+    numbers = True
+  else:
+    numbers = False
 
-  return Pass_length, lowercase
+  return Pass_length, lowercase, uppercase, punctuation_marks, numbers
 
 def main():
   print("****Welcome our random password generator****")
-  Pass_length, lowercase = capture_user_input()
+  Pass_length, lowercase, uppercase, punctuation_marks, numbers = capture_user_input()
   
-  generate_pass(Pass_length,lowercase,0,4,4)
+  generate_pass(Pass_length,lowercase, uppercase,punctuation_marks,numbers)
 
 if __name__ == '__main__':
   main()
