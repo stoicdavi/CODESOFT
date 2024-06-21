@@ -25,8 +25,12 @@ def capture_user_input():
   while True:
     print("Hello welcome")
     Pass_length = int(input("Enter the password length: "))
+    break
+  return Pass_length
 
 def main():
   Pass_length = capture_user_input()
   generate_pass(Pass_length,0,0,4,4)
 
+if __name__ == '__main__':
+  main()
