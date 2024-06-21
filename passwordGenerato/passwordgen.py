@@ -48,7 +48,7 @@ def capture_user_input():
     punctuation_marks = True
   else:
     punctuation_marks = False
-  numbers_input = input("Do you want to incude punctuation marks? (yes or no): ").lower()
+  numbers_input = input("Do you want to incude numbers? (yes or no): ").lower()
   if numbers_input in ['yes', 'y']:
     numbers = True
   else:
