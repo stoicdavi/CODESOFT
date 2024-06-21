@@ -32,15 +32,20 @@ def capture_user_input():
       break
     except ValueError:
       print('Invalid input! Please enter a positive number')
-    break
-  
-  return Pass_length
+
+  lowercase_input = input("Do you want to incude lowercase? (yes or no): ").lower()
+  if lowercase_input in ['yes', 'y']:
+    lowercase = True
+  else:
+    lowercase = False
+
+  return Pass_length, lowercase
 
 def main():
   print("****Welcome our random password generator****")
-  Pass_length = capture_user_input()
+  Pass_length, lowercase = capture_user_input()
   
-  generate_pass(Pass_length,0,0,4,4)
+  generate_pass(Pass_length,lowercase,0,4,4)
 
 if __name__ == '__main__':
   main()
