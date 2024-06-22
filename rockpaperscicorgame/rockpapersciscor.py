@@ -18,7 +18,15 @@ def determine_winner(player_choice, computer_choice):
         return 'Tie'
     else:
         return 'Computer'
+def display_Winner():
+    computer_choice = computers_selection()
+    player_choice = get_players_choice()
+    winner = determine_winner(player_choice, computer_choice)
+    if winner == 'Computer':
+        print('You lose!')
+    elif winner == 'Player':
+        print('Congratulations! You won!')
+    else:
+        print("It is a tie!")
 
-computer_choice = computers_selection()
-player_choice = get_players_choice()
-print(f'The winner is : {determine_winner(player_choice, computer_choice)}')
+display_Winner()
