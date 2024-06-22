@@ -5,7 +5,10 @@ def get_players_choice():
     while player_choice not in options:
         player_choice = input('Invalid choice! Please enter (paper, rock or scissor): ')
     return player_choice
-computer_choice = rd.choice(options)
+
+def computers_selection():
+    return  rd.choice(options)
+
 def determine_winner(player_choice, computer_choice):
     if  (player_choice == "rock" and computer_choice == "scissors") or \
          (player_choice== "scissors" and computer_choice == "paper") or \
@@ -16,5 +19,6 @@ def determine_winner(player_choice, computer_choice):
     else:
         return 'Computer'
 
+computer_choice = computers_selection()
 player_choice = get_players_choice()
 print(f'The winner is : {determine_winner(player_choice, computer_choice)}')
