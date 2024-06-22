@@ -19,24 +19,37 @@ def determine_winner(player_choice, computer_choice):
     else:
         return 'Computer'
     
-def display_Winner():
+def return_Winner():
     computer_choice = computers_selection()
     player_choice = get_players_choice()
     winner = determine_winner(player_choice, computer_choice)
-    if winner == 'Computer':
-        print('You lose!')
-    elif winner == 'Player':
-        print('Congratulations! You won!')
-    else:
-        print("It is a tie!")
+    return winner
+  
+
 
 def main():
+    computer_score = 0
+    player_score = 0
     while True:
         print('***Welcome to our DeanTech Paper, Rock, Scicor game! **')
-        display_Winner()
+        winner = display_Winner()
+        if winner == 'Player':
+            player_score += 1
+        elif winner == 'Computer':
+            computer_score += 1
+
         choice = input('Would you like to play again? ').lower()
         if choice not in ['yes', 'y']:
             break
+    
+        
+        print(f'The final scores are Computer scores: {computer_score} and your scores are: {player_score}')
+    if player_score > computer_score:
+        print('You player won!')
+    elif player_score < computer_score:
+        print('You lose')
+    else:
+        print('It is a tie')
 
 if __name__ == '__main__':
     main()
