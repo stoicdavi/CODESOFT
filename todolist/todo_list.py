@@ -5,6 +5,9 @@ TODO_LIST_FILE = 'todo.json'
 
 #loading our json data
 def upload_todo_list():
+    """
+        Opens the file as rf in a read mode, and uploads its data in json format to rf
+    """
     if os.path.exists(TODO_LIST_FILE):
         with open(TODO_LIST_FILE, 'r') as rf:
             return json.load(rf)
@@ -12,12 +15,18 @@ def upload_todo_list():
         return []
 
 def list_todos(list_of_todo):
+    """
+        Displays the list of todos
+    """
     print('\nNo  Task   status')
     for i, todo in enumerate(list_of_todo, 1):
         status = 'Done' if todo['Done'] else 'Not Done'
         print(f"{i}. {todo['Task']} [{status}]")
 
 def add_todo_task():
+    """"
+        Allows a user to add a task to his/her to do list
+    """
     while True:
         task = input("Enter the task you have: ")
         list_of_todo = upload_todo_list()
@@ -35,14 +44,16 @@ def add_todo_task():
                 print("Invalid choice, please enter 'Yes' or 'No'.")
               
               
-
-
-
-
 def save_todo_task(list_of_todo):
+    """
+        Allow user to Saved the added task 
+    """
     with open(TODO_LIST_FILE, 'w') as wf:
         json.dump(list_of_todo, wf, indent=3)
 def marks_task_done():
+    """
+        Allows user to mark a task as done
+    """
     list_of_todo = upload_todo_list()
     list_todos(list_of_todo)
     task_number = int(input("Enter teh task number you want to marks as one: ")) - 1
@@ -54,6 +65,9 @@ def marks_task_done():
         print('Invalid Task number!')
     
 def delete_task():
+    """
+        Allow a user to delete a task
+    """
     while True:
         list_of_todo = upload_todo_list()
         list_todos(list_of_todo)
