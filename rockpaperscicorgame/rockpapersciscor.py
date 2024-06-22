@@ -32,7 +32,7 @@ def main():
     computer_score = 0
     player_score = 0
     while True:
-        print('***Welcome to our DeanTech Paper, Rock, Scicor game! **')
+        print('\n***Welcome to our DeanTech Paper, Rock, Scissor game! **')
         winner = return_Winner()
         if winner == 'Player':
             player_score += 1
@@ -43,13 +43,13 @@ def main():
         else:
             print('It is a tie!')
             
-        print(f"****Current scores****\nComputer: {computer_score}\nUser score: {player_score}")
+        print(f"\n****Current scores****\nComputer: {computer_score}\nUser score: {player_score}")
 
         choice = input('Would you like to play again? ').lower()
         if choice not in ['yes', 'y']:
             break
   
-    print(f'***The final scores are:**\nComputer scored: {computer_score}\nYou scorede: {player_score}')
+    print(f'\n***The final scores are:**\nComputer scored: {computer_score}\nYou scored: {player_score}')
     if player_score > computer_score:
         print('You player won!')
     elif player_score < computer_score:
