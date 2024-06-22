@@ -23,6 +23,7 @@ def return_Winner():
     computer_choice = computers_selection()
     player_choice = get_players_choice()
     winner = determine_winner(player_choice, computer_choice)
+    print(f'Computers choice:  {computer_choice} \nUsers Choice: {player_choice}')
     return winner
   
 
@@ -32,18 +33,19 @@ def main():
     player_score = 0
     while True:
         print('***Welcome to our DeanTech Paper, Rock, Scicor game! **')
-        winner = display_Winner()
+        winner = return_Winner()
         if winner == 'Player':
             player_score += 1
         elif winner == 'Computer':
             computer_score += 1
+        print(f"****Current scores****\nComputer: {computer_score}\nUser score: {player_score}")
 
         choice = input('Would you like to play again? ').lower()
         if choice not in ['yes', 'y']:
             break
     
         
-        print(f'The final scores are Computer scores: {computer_score} and your scores are: {player_score}')
+    print(f'The final scores are Computer scores: {computer_score} and your scores are: {player_score}')
     if player_score > computer_score:
         print('You player won!')
     elif player_score < computer_score:
