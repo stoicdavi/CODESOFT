@@ -20,13 +20,13 @@ def determine_winner(player_choice, computer_choice):
         return 'Computer'
     
 def return_Winner():
+
     computer_choice = computers_selection()
     player_choice = get_players_choice()
     winner = determine_winner(player_choice, computer_choice)
     print(f'Computers choice:  {computer_choice} \nUsers Choice: {player_choice}')
     return winner
   
-
 
 def main():
     computer_score = 0
@@ -36,16 +36,20 @@ def main():
         winner = return_Winner()
         if winner == 'Player':
             player_score += 1
+            print("Congratulations! You won!")
         elif winner == 'Computer':
+            print('You lose!')
             computer_score += 1
+        else:
+            print('It is a tie!')
+            
         print(f"****Current scores****\nComputer: {computer_score}\nUser score: {player_score}")
 
         choice = input('Would you like to play again? ').lower()
         if choice not in ['yes', 'y']:
             break
-    
-        
-    print(f'The final scores are Computer scores: {computer_score} and your scores are: {player_score}')
+  
+    print(f'***The final scores are:**\nComputer scored: {computer_score}\nYou scorede: {player_score}')
     if player_score > computer_score:
         print('You player won!')
     elif player_score < computer_score:
