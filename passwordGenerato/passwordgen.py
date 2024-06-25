@@ -57,10 +57,13 @@ def capture_user_input():
   return Pass_length, lowercase, uppercase, punctuation_marks, numbers
 
 def main():
-  print("****Welcome our random password generator****")
-  Pass_length, lowercase, uppercase, punctuation_marks, numbers = capture_user_input()
-  
-  generate_pass(Pass_length,lowercase, uppercase,punctuation_marks,numbers)
+  while True:
+    print("\n****Welcome our random password generator****\n")
+    Pass_length, lowercase, uppercase, punctuation_marks, numbers = capture_user_input()
+    generate_pass(Pass_length,lowercase, uppercase,punctuation_marks,numbers)
+    choice = input("\nDo you want to generate another password? (yes or no): ").lower()
+    if choice not in ['yes', 'y']:
+      break
 
 if __name__ == '__main__':
   main()
