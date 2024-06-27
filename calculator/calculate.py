@@ -52,7 +52,7 @@ def main():
             print(f"\n**The result of {num1} Modulus {num2} = {modulus(num1, num2)}")
         elif choice == 0:
             break
-        choice = input("would you like to perform another calcuation? (yes or no) ").lower()
+        choice = input("would you like to perform another calculation? (yes or no) ").lower()
         if choice not in ['yes', 'y']:
             break
     print('\n***Thank you for using our calculator! :)')
