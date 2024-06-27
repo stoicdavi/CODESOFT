@@ -86,6 +86,15 @@ def delete_task():
             print(f"Task '{deleted_task['Task']}' successfully deleted!\n")
         else:
             print('Invalid task number. Please check and try again!')
+            continue
+        
+        choice = input("Would you like to delete another task? (Yes or no)").lower()
+        if choice not in ['yes', 'y']:
+            break
+        elif choice in ['no', 'n']:
+            return 
+        else:
+            print("Invalid choice, please enter 'Yes' or 'No'.")
 
         if not list_of_todo:
             print("All tasks have been deleted.")
@@ -95,7 +104,7 @@ def delete_task():
 def main():
     while True:
         print("\nSelect \n1.To view tasks in the list: \n2.To add task to the list: ")
-        print("3.To mark a task as done\n4.To delete from the list \n0.To exit: ")
+        print("3.To mark a task as done\n4.To delete a task from the list \n0.To exit: ")
         choice = int(input("Choice: "))
 
         if choice == 1:
