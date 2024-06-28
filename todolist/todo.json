@@ -5,6 +5,14 @@
    },
    {
       "Task": "read",
+      "Done": true
+   },
+   {
+      "Task": "Landing",
+      "Done": true
+   },
+   {
+      "Task": "Weeding",
       "Done": false
    }
 ]

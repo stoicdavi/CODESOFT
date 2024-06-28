@@ -32,7 +32,7 @@ def add_todo_task():
         list_of_todo = upload_todo_list()
         list_of_todo.append({"Task": task, "Done": False}) 
         save_todo_task(list_of_todo)
-        print('Task added successfully!\n')
+        print(f'Task {task} added successfully!\n')
         
         while True:
             choice = input("Would you like to add another task? (Yes or No): ").strip().lower()
@@ -56,13 +56,18 @@ def marks_task_done():
     """
     list_of_todo = upload_todo_list()
     list_todos(list_of_todo)
-    task_number = int(input("Enter teh task number you want to marks as one: ")) - 1
-    if task_number > 0 and task_number < len(list_of_todo):
-        done_task = list_of_todo[task_number]['Done'] = True
-        save_todo_task(list_of_todo)
-        print(f"Task {done_task['Task']}Marked as done")
+    task_number = int(input("Enter the task number you want to marks as one: ")) - 1
+    done_task1 = list_of_todo[task_number]['Done']
+    if done_task1 == True:
+        print("Task already marked done")
     else:
-        print('Invalid Task number!')
+        if task_number > 0 and task_number < len(list_of_todo):
+                    
+            done_task = list_of_todo[task_number]['Done'] = True
+            save_todo_task(list_of_todo)
+            print(f"Task {done_task['Task']}Marked as done")
+        else:
+            print('Invalid Task number!')
     
 def delete_task():
     """
@@ -102,8 +107,10 @@ def delete_task():
 
 
 def main():
+    print("**Welcome to DeANTECH Todo List!**")
     while True:
-        print("\nSelect \n1.To view tasks in the list: \n2.To add task to the list: ")
+       
+        print("Select \n1.To view tasks in the list: \n2.To add a task to the list: ")
         print("3.To mark a task as done\n4.To delete a task from the list \n0.To exit: ")
         choice = int(input("Choice: "))
 
