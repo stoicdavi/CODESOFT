@@ -63,12 +63,13 @@ def marks_task_done():
     done_task1 = list_of_todo[task_number]['Done']
     if done_task1 == True:
         print("Task already marked done")
+        return
     else:
         if task_number > 0 and task_number < len(list_of_todo):
                     
             done_task = list_of_todo[task_number]['Done'] = True
             save_todo_task(list_of_todo)
-            print(f"Task {done_task['Task']}Marked as done")
+            print(f"Task {list_of_todo[task_number]} Marked as done")
         else:
             print('Invalid Task number!')
     

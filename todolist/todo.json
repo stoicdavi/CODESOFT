@@ -8,23 +8,15 @@
       "Done": true
    },
    {
-      "Task": "Landing",
+      "Task": "Weeding",
       "Done": true
    },
    {
-      "Task": "Weeding",
-      "Done": false
+      "Task": "meeting",
+      "Done": true
    },
    {
-      "Task": "",
-      "Done": false
-   },
-   {
-      "Task": "",
-      "Done": false
-   },
-   {
-      "Task": "",
-      "Done": false
+      "Task": "weeding",
+      "Done": true
    }
 ]
