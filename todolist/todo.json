@@ -18,5 +18,9 @@
    {
       "Task": "weeding",
       "Done": true
+   },
+   {
+      "Task": "running",
+      "Done": false
    }
 ]

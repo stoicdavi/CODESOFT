@@ -1,6 +1,6 @@
 import os
 import json
-
+import time as t
 TODO_LIST_FILE = 'todo.json'
 
 #loading our json data
@@ -111,7 +111,8 @@ def delete_task():
 
 
 def main():
-    print("**Welcome to DeANTECH Todo List!**")
+    print("**Welcome to DeANTECH Todo List!** Today ", end="")
+    print(t.asctime())
     while True:
        
         print("Select \n1.To view tasks in the list: \n2.To add a task to the list: ")
