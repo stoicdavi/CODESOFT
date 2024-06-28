@@ -28,7 +28,10 @@ def add_todo_task():
         Allows a user to add a task to his/her to do list
     """
     while True:
-        task = input("Enter the task you have: ")
+        task = input("Enter the task you have: ").strip()
+        if task == '':
+            print('Task cannot be empty! please check and try adding again !')
+            continue
         list_of_todo = upload_todo_list()
         list_of_todo.append({"Task": task, "Done": False}) 
         save_todo_task(list_of_todo)
