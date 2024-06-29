@@ -65,6 +65,9 @@ def read_passwords():
   with open(PASS_FILE, 'r') as rf:
     print(rf.read())
 
+def delete_passwords():
+  with open(PASS_FILE, 'w') as rf:
+    rf.write('')
 
 def main():
   print("****Welcome to DeANTECH random password generator****\n")
@@ -81,6 +84,9 @@ def main():
     elif selection == 2:
        print('The Generated passwords are')
        read_passwords()
+    elif selection == 3:
+      delete_passwords()
+      print('All passwords deleted')
   
   print("Thank you for using our password generator")
 
