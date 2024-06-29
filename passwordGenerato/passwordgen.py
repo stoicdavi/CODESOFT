@@ -55,6 +55,20 @@ def capture_user_input():
     numbers = False
 
   return Pass_length, lowercase, uppercase, punctuation_marks, numbers
+def password_strength(password):
+  length = len(password)
+  has_upper = any(c.isupper() for c in password)
+  has_lower = any(c.islower() for c in password)
+  has_digit = any(c.isdigit() for c in password)
+  has_punct = any(c in st.punctuation for c in password)
+    
+  strength = sum([length >= 8, has_upper, has_lower, has_digit, has_punct])   
+  if strength <= 2:
+    return "Weak"
+  elif strength == 3:
+   return "Moderate"
+  else:
+   return "Strong"
 
 def save_password(password):
   with open(PASS_FILE, 'a') as rf:
@@ -74,27 +88,30 @@ def delete_passwords():
       print('No passwords were deleted')
 
 def main():
-  print("****Welcome to DeANTECH random password generator****\n")
+  print("**** Welcome to DeANTECH Random Password Generator ****\n")
   while True:
-    print("Select:\n1.To generate a new password\n2.To view the generate passwords\n3.To Delete all the passwords\n0.To exit\n")
-    selection = int(input("Choice: "))
-    if selection == 1:
-      Pass_length, lowercase, uppercase, punctuation_marks, numbers = capture_user_input()
-      password = generate_pass(Pass_length,lowercase, uppercase,punctuation_marks,numbers)
-      save_password(password)
-      choice = input("\nDo you want to generate another password? (yes or no): ").lower()
-      if choice not in ['yes', 'y']:
+    print("Select:\n1. Generate a new password\n2. View generated passwords\n3. Delete all passwords\n0. Exit\n")
+    try:
+      selection = int(input("Choice: "))
+      if selection == 1:
+        Pass_length, lowercase, uppercase, punctuation_marks, numbers = capture_user_input()
+        password = generate_pass(Pass_length, lowercase, uppercase, punctuation_marks, numbers)
+        strength = password_strength(password)
+        print(f'Password strength: {strength}')
+        save_password(password)
+      elif selection == 2:
+        print('The Generated passwords are:')
+        read_passwords()
+      elif selection == 3:
+        delete_passwords()
+      elif selection == 0:
         break
-    elif selection == 2:
-       print('The Generated passwords are')
-       read_passwords()
-    elif selection == 3:
-      delete_passwords()
-      print('All passwords deleted')
-    elif selection == 0:
-      break
-  
-  print("Thank you for using our password generator \n\tMake sure to keep your passwords safe!")
+      else:
+        print("Invalid choice, please select a valid option.")
+    except ValueError:
+        print("Invalid input, please enter a number.")
+    
+  print("Thank you for using our password generator. Keep your passwords safe!")
 
 if __name__ == '__main__':
-  main()
+    main()
