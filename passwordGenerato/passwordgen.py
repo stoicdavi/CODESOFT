@@ -67,12 +67,16 @@ def read_passwords():
 
 def delete_passwords():
   with open(PASS_FILE, 'w') as rf:
-    rf.write('')
+    choice = input('Are you sure you want to delete all passwords? (yes or no): ').lower()
+    if choice in ['yes', 'y']:
+      rf.write('')
+    else:
+      print('No passwords were deleted')
 
 def main():
   print("****Welcome to DeANTECH random password generator****\n")
   while True:
-    print("Select:\n1.To generate a new password\n2.To view the generate passwords\n3.To Delete all the passwords")
+    print("Select:\n1.To generate a new password\n2.To view the generate passwords\n3.To Delete all the passwords\n0.To exit\n")
     selection = int(input("Choice: "))
     if selection == 1:
       Pass_length, lowercase, uppercase, punctuation_marks, numbers = capture_user_input()
@@ -87,8 +91,10 @@ def main():
     elif selection == 3:
       delete_passwords()
       print('All passwords deleted')
+    elif selection == 0:
+      break
   
-  print("Thank you for using our password generator")
+  print("Thank you for using our password generator \n\tMake sure to keep your passwords safe!")
 
 if __name__ == '__main__':
   main()
