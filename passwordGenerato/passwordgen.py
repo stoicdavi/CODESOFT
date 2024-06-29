@@ -20,10 +20,10 @@ def generate_pass(Pass_length, lowercase=True, uppercase=True, punctuation_marks
 
   password = ''.join(rm.choices(pass_chars,k=Pass_length))
   print(f'Your generated password is {password}')
+  return password
 
 def capture_user_input():
   while True:
-    print("Hello welcome")
     try:
       Pass_length = int(input("Enter the password length: "))
       if Pass_length <= 0:
@@ -55,15 +55,21 @@ def capture_user_input():
     numbers = False
 
   return Pass_length, lowercase, uppercase, punctuation_marks, numbers
-
+def save_password(password):
+  with open('passwords.txt', 'a') as rf:
+    rf.write(password + '\n')
+  print('Password saved to passwords.txt')
 def main():
   while True:
     print("\n****Welcome our random password generator****\n")
     Pass_length, lowercase, uppercase, punctuation_marks, numbers = capture_user_input()
-    generate_pass(Pass_length,lowercase, uppercase,punctuation_marks,numbers)
+    password = generate_pass(Pass_length,lowercase, uppercase,punctuation_marks,numbers)
+    save_password(password)
     choice = input("\nDo you want to generate another password? (yes or no): ").lower()
     if choice not in ['yes', 'y']:
       break
+  
+  print("Thank you for using our password generator")
 
 if __name__ == '__main__':
   main()
