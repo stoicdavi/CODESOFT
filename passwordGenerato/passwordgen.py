@@ -55,10 +55,17 @@ def capture_user_input():
     numbers = False
 
   return Pass_length, lowercase, uppercase, punctuation_marks, numbers
+
 def save_password(password):
   with open('passwords.txt', 'a') as rf:
     rf.write(password + '\n')
   print('Password saved to passwords.txt')
+
+def read_passwords():
+  with open('passwords.txt', 'r') as rf:
+    print(rf.read())
+
+
 def main():
   while True:
     print("\n****Welcome our random password generator****\n")
@@ -67,6 +74,7 @@ def main():
     save_password(password)
     choice = input("\nDo you want to generate another password? (yes or no): ").lower()
     if choice not in ['yes', 'y']:
+      read_passwords()
       break
   
   print("Thank you for using our password generator")
