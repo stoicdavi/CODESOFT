@@ -33,22 +33,22 @@ def capture_user_input():
     except ValueError:
       print('Invalid input! Please enter a positive number')
 
-  lowercase_input = input("Do you want to incude lowercase? (yes or no): ").lower()
+  lowercase_input = input("Incude lowercase? (yes or no): ").lower().strip()
   if lowercase_input in ['yes', 'y']:
     lowercase = True
   else:
     lowercase = False
-  uppercase_input = input("Do you want to incude uppercase letters? (yes or no): ").lower()
+  uppercase_input = input("Incude uppercase letters? (yes or no): ").lower().strip()
   if uppercase_input in ['yes', 'y']:
     uppercase = True
   else:
     uppercase = False
-  Punctuation_input = input("Do you want to incude punctuation marks? (yes or no): ").lower()
+  Punctuation_input = input("Incude punctuation marks? (yes or no): ").lower().strip()
   if Punctuation_input in ['yes', 'y']:
     punctuation_marks = True
   else:
     punctuation_marks = False
-  numbers_input = input("Do you want to incude numbers? (yes or no): ").lower()
+  numbers_input = input("Incude numbers? (yes or no): ").lower().strip()
   if numbers_input in ['yes', 'y']:
     numbers = True
   else:
