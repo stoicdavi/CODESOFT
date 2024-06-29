@@ -1,6 +1,6 @@
 import random as rm
 import string as st
-
+PASS_FILE = 'passwords.txt'
 def generate_pass(Pass_length, lowercase=True, uppercase=True, punctuation_marks=True, numbers=True):
   
   """
@@ -57,25 +57,30 @@ def capture_user_input():
   return Pass_length, lowercase, uppercase, punctuation_marks, numbers
 
 def save_password(password):
-  with open('passwords.txt', 'a') as rf:
+  with open(PASS_FILE, 'a') as rf:
     rf.write(password + '\n')
   print('Password saved to passwords.txt')
 
 def read_passwords():
-  with open('passwords.txt', 'r') as rf:
+  with open(PASS_FILE, 'r') as rf:
     print(rf.read())
 
 
 def main():
+  print("****Welcome to DeANTECH random password generator****\n")
   while True:
-    print("\n****Welcome our random password generator****\n")
-    Pass_length, lowercase, uppercase, punctuation_marks, numbers = capture_user_input()
-    password = generate_pass(Pass_length,lowercase, uppercase,punctuation_marks,numbers)
-    save_password(password)
-    choice = input("\nDo you want to generate another password? (yes or no): ").lower()
-    if choice not in ['yes', 'y']:
-      read_passwords()
-      break
+    print("Select:\n1.To generate a new password\n2.To view the generate passwords\n3.To Delete all the passwords")
+    selection = int(input("Choice: "))
+    if selection == 1:
+      Pass_length, lowercase, uppercase, punctuation_marks, numbers = capture_user_input()
+      password = generate_pass(Pass_length,lowercase, uppercase,punctuation_marks,numbers)
+      save_password(password)
+      choice = input("\nDo you want to generate another password? (yes or no): ").lower()
+      if choice not in ['yes', 'y']:
+        break
+    elif selection == 2:
+       print('The Generated passwords are')
+       read_passwords()
   
   print("Thank you for using our password generator")
 
