@@ -20,49 +20,56 @@ def determine_winner(player_choice, computer_choice):
         return 'Tie'
     else:
         return 'Computer'
-def return_winner():
-    computer_choice = computers_selection()
-    player_choice = get_players_choice()
-    winner = determine_winner(player_choice, computer_choice)
-    print(f'Computer\'s choice: {computer_choice} \nPlayer\'s choice: {player_choice}')
-    return winner
+
 def main():
-    computer_score = 0
-    player_score = 0
-    print('\n*** Welcome to our DeanTech Rock, Paper, Scissors game! ***')
+    total_computer_score = 0
+    total_player_score = 0
+    played_once = False
+
+    print('\n*** Welcome to DeanTech Rock, Paper, Scissors! ***')
 
     while True:
-        print('\n*** The game is about to start! ***\nSelect:\n1. Start the game\n2. Exit the game\n')
-        choice = input('Enter your choice: ')
-        if choice == '2':
-            break
-        elif choice != '1':
-            print('Invalid choice! Please enter 1 to start the game or 2 to exit the game')
-            continue
+        if played_once:
+            print('\n**** Menu ****')
+            print('1. Play again')
+            print('2. Reset scores')
+            print('3. Exit')
 
-        winner = return_winner()
+            choice = input('Enter your choice: ')
+            if choice == '2':
+                total_computer_score, total_player_score = 0, 0
+                print('Scores have been reset.')
+                continue
+            elif choice == '3':
+                break
+            elif choice != '1':
+                print('Invalid choice! Please select 1, 2, or 3.')
+                continue
+
+        player_choice = get_players_choice()
+        computer_choice = computers_selection()
+        winner = determine_winner(player_choice, computer_choice)
+        print(f'\nComputer\'s choice: {computer_choice}\nPlayer\'s choice: {player_choice}')
+
         if winner == 'Player':
-            player_score += 1
+            total_player_score += 1
             print("Congratulations! You won!")
         elif winner == 'Computer':
-            computer_score += 1
+            total_computer_score += 1
             print('You lose!')
         else:
-            print('It is a tie!')
+            print('It\'s a tie!')
 
-        print(f"\n**** Current scores ****\nComputer: {computer_score}\nPlayer: {player_score}")
-        if input('Would you like to play again? (yes or no): ').lower() not in ['yes', 'y']:
-            break
+        print(f"\n**** Current scores ****\nComputer: {total_computer_score}\nPlayer: {total_player_score}")
+        played_once = True
 
-    print(f'\n*** Final scores ***\nComputer: {computer_score}\nPlayer: {player_score}')
-    if player_score > computer_score:
+    print(f'\n*** Final scores ***\nComputer: {total_computer_score}\nPlayer: {total_player_score}')
+    if total_player_score > total_computer_score:
         print('Congratulations! You won the game!')
-    elif player_score < computer_score:
+    elif total_player_score < total_computer_score:
         print('You lost the game!')
     else:
         print('It\'s a tie!')
-
-
 
 if __name__ == '__main__':
     main()
